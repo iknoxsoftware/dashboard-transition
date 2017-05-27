@@ -1,0 +1,2 @@
+<div class='checkbox' [ngClass]="settingsItem.isChecked ? 'checked' : 'unchecked'" (click)='onSelected($event)'></div>
+<div class='label' (click)="onSelected($event)" title='{{settingsItem.displayName}}'>{{ settingsItem.displayName }}</div>

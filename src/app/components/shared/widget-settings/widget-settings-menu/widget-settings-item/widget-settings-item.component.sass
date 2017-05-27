@@ -1,0 +1,25 @@
+@import ../../../../../../styles/colors
+$path: '../../../../../../assets/widget-settings/'
+
+.checkbox
+    height: 14px
+    width: 14px
+    display: inline-block
+    vertical-align: middle
+    border: 1px solid transparent
+    &:hover
+        border: 1px solid $SideSettingsBackgroundBrush
+
+.checked
+    background-image: url($path + 'checked.png')
+    background-repeat: no-repeat
+
+.unchecked
+    background-image: url($path + 'unchecked.png')
+    background-repeat: no-repeat
+
+.label
+    display: inline-block
+    margin-top: 1px
+    vertical-align: middle
+    cursor: default

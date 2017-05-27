@@ -1,0 +1,5 @@
+<div class='menu-item' [ngClass]="{'menu-item-selected': menuItem.isSelected }" (click)='menuItemClicked($event)'>
+    <img [src]='menuItem.imageUrl'/>
+    <div>{{menuItem.name}}</div>
+</div>
+<div class='menu-item-separator' [ngClass]="{'menu-item-separator-bar': menuItem.isLastItem === false }"></div>

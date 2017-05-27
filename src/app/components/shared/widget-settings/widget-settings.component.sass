@@ -1,0 +1,59 @@
+@import ../../../../styles/colors
+    
+.root
+    height: 100%
+    background-color: $SideSettingsBackgroundBrush
+    border: 1px solid $WidgetOuterBorder
+    margin: 2px 2px 0 2px
+
+.root-middle-outer-border
+    border: 2px solid white
+    height: calc(100% - 4px)
+
+.root-middle-inner-border
+    border: 2px solid #F0F0F0
+    height: calc(100% - 4px)
+
+.root-inner-border
+    border: 1px solid $WidgetOuterBorder
+    height: calc(100% - 2px)
+    position: relative
+
+.header
+    background-color: $SideSettingsBackgroundBrush
+    color: white
+    border-bottom: 2px solid white
+
+.header-item
+    font-weight: bold
+    display: inline-block
+    padding: 8px 8px
+
+.panelbar
+    overflow: auto
+
+.footer
+    position: absolute
+    bottom: 0
+    width: 100%
+    border-top: 2px solid white
+
+.footer-item
+    padding: 8px 8px 7px 0
+    float: right
+    button
+        width: 75px
+        padding: 3px
+        color: white
+        border: 1px solid white
+        background: linear-gradient(#909193, #4E5156)
+        &:hover
+            background: linear-gradient(#4E5156, #909193)
+        &:focus
+            outline: 0
+
+kendo-panelbar
+    background-color: $SideSettingsBackgroundBrush
+
+kendo-panelbar-item
+    padding: 1px 0
