@@ -32,6 +32,12 @@ import { WidgetSettingsMenuComponent } from './components/shared/widget-settings
 import { WidgetSettingsItemComponent } from "app/components/shared/widget-settings/widget-settings-menu/widget-settings-item/widget-settings-item.component";
 import { MaasContentComponent } from './components/widgets/maas/maas-content/maas-content.component';
 import { PivotViewerContentComponent } from './components/widgets/pivot-viewer/pivot-viewer-content/pivot-viewer-content.component';
+// import { EsriMapComponent } from "./components/shared/esri-map/esri-map.component";
+// import { EsriMapMapComponent } from './components/shared/esri-map/esri-map-map/esri-map-map.component';
+// import { EsriSearchComponent } from "./components/shared/esri-map/esri-map-map/esri-search/esri-search.component";
+
+import { EsriMapViewComponent } from "./components/shared/esri-map-view/esri-map-view.component";
+import { AngularEsriModule } from 'angular-esri-components';
 
 @NgModule({
     declarations: [
@@ -52,7 +58,11 @@ import { PivotViewerContentComponent } from './components/widgets/pivot-viewer/p
         WidgetSettingsItemComponent,
         WidgetSettingsMenuComponent,
         MaasContentComponent,
-        PivotViewerContentComponent
+        PivotViewerContentComponent,
+        // EsriMapComponent,
+        // EsriSearchComponent,
+        // EsriMapMapComponent,
+        EsriMapViewComponent
     ],
     imports: [
         BrowserModule,
@@ -60,9 +70,14 @@ import { PivotViewerContentComponent } from './components/widgets/pivot-viewer/p
         PanelBarModule,
         FormsModule,
         HttpModule,
-        RoutingData
+        RoutingData,
+        AngularEsriModule
     ],
-    providers: [MenuService, EventService, WidgetSettingsService],
+    providers: [
+        MenuService, 
+        EventService, 
+        WidgetSettingsService
+    ],
     bootstrap: [PageComponent]
 })
 export class AppModule { }

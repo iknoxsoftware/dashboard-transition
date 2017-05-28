@@ -26,6 +26,7 @@
     "@progress/kendo-angular-l10n": "^1.0.0",
     "@progress/kendo-angular-layout": "^1.0.2",
     "@progress/kendo-theme-default": "^2.37.0",
+    "angular-esri-components": "^1.0.0",
     "core-js": "^2.4.1",
     "node-sass": "^4.5.3",
     "rxjs": "^5.1.0",
