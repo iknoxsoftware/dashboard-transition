@@ -1,5 +1,5 @@
 import { PanelBarItemModel } from "@progress/kendo-angular-layout/dist/es/main";
-import { WidgetID } from "app/data/widget.model";
+import { WidgetID } from "app/models/widget.model";
 
 export enum SettingsMenuID {
     view = 1,

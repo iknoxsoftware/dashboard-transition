@@ -1,6 +1,6 @@
 
-import { WidgetID } from "app/data/widget.model";
 import { WidgetHelper } from "app/helpers/widget.helper";
+import { WidgetID } from "app/models/widget.model";
 
 export class MenuModel {
     isClassified: boolean;

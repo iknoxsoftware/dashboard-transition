@@ -1,4 +1,5 @@
-import { WidgetID } from "app/data/widget.model";
+
+import { WidgetID } from "app/models/widget.model";
 
 export class WidgetHeaderModel { 
     constructor(public widgetID: WidgetID, public headerItems: Array<WidgetHeaderItemModel>, public doAnimation: boolean) {}
