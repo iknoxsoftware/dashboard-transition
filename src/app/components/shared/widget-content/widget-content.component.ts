@@ -7,7 +7,6 @@ import { SettingsSelectionModel } from "app/models/widget-settings.model";
 import { Subscription } from "rxjs/Subscription";
 
 export class WidgetContentComponent {
-widgetHeader: WidgetHeaderModel;
 settingsSelections: SettingsSelectionModel;
 subscription: Subscription;
 
@@ -18,14 +17,15 @@ subscription: Subscription;
     showBusyBox(id: BusyBoxMessageID){
         this._eventService.raiseShowBusyBox(id);
 
-        setTimeout(() => {
-            this.hideBusyBox();
-        }, 1000);
+        if (this.widgetID !== WidgetID.pivotViewer)
+            setTimeout(() => {
+                this.hideBusyBox();
+            }, 1000);
     }
     hideBusyBox() {
         this._eventService.raiseHideBusyBox();
     }
-    updateHeader() {
-        this._eventService.raiseWidgetHeaderUpdated(this.widgetHeader);
+    updateHeader(header: WidgetHeaderModel) {
+        this._eventService.raiseWidgetHeaderUpdated(header);
     }
 }

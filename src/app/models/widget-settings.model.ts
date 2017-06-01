@@ -2,9 +2,52 @@ import { PanelBarItemModel } from "@progress/kendo-angular-layout/dist/es/main";
 import { WidgetID } from "app/models/widget.model";
 
 export enum SettingsMenuID {
+    group = 0,
     view = 1,
-    group = 2,
-    mission = 3
+    mission = 2,
+    service = 3,
+    plan = 4,
+    groupBy = 5,
+    orderBy = 6,
+    readinessDisplay = 7,
+    requirementView = 8,
+    airForceMds = 9,
+    airForceMatcon = 10,
+    base = 11,
+    ppc = 12,
+    majcom = 13,
+    imagery = 14,
+    overlay = 15,
+    ngbMission = 16,
+    ngbSeverity = 17,
+    ngbFunction = 18,
+    state = 19,
+    femaRegion = 20,
+    rotation = 21,
+    quickView = 22,
+    detailColumn = 23,
+    pivotViewerReport = 24,
+    navyMds = 25,
+    navyMatcon = 26,
+    usafMajcom = 27,
+    tagConfig = 28,
+    assigned = 29,
+    planTypeBin = 30,
+    esfSeverity = 31,
+    esfFunction = 32,
+    emcCapability = 33,
+    groupMission = 34,
+    groupMet = 35,
+    groupArtUtc = 36,
+    capabilitySearch = 37,
+    ngbView = 38,
+    assemblage = 39,
+    assemblageBase = 40,
+    assemblageMajcom = 41,
+    capability = 42,
+    component = 43,
+    landmark = 44,
+    unitNameSearch = 45,
 }
 
 export enum SettingsSelectionID {
@@ -27,7 +70,7 @@ export class SettingsMenuModel implements PanelBarItemModel {
     children: Array<SettingsMenuModel>;
     content: any;
 
-    constructor(public name: string, public menuID: SettingsMenuID, public selectionID: SettingsSelectionID, public items: Array<SettingsItemModel>){
+    constructor(public name: string, public menuID: SettingsMenuID, public selectionID: SettingsSelectionID, public isVisible: boolean, public items: Array<SettingsItemModel>){
         this.setTitle();
     }
 
@@ -52,11 +95,12 @@ export class SettingsItemModel {
     displayName: string;
     isChecked: boolean;
     imagePath: string;
-    name: string;
+    key: string;
     guidID: string;
     numberID: number;
     tag: any;
     isLink: boolean;
+    menuID: SettingsMenuID;
 }
 
 export class SettingsSelectionModel {

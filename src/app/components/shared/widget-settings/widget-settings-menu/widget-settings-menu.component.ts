@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SettingsMenuModel, SettingsItemModel, SettingsSelectionID } from "app/models/widget-settings.model";
 
 @Component({
@@ -8,6 +8,7 @@ import { SettingsMenuModel, SettingsItemModel, SettingsSelectionID } from "app/m
 })
 export class WidgetSettingsMenuComponent implements OnInit {
 @Input() menuItem: SettingsMenuModel;
+@Output() itemSelected: EventEmitter<SettingsItemModel> = new EventEmitter();
 
     constructor() { }
 
@@ -15,9 +16,7 @@ export class WidgetSettingsMenuComponent implements OnInit {
         
     }
 
-    onSelected(event) {
-        let item = event as SettingsItemModel;
-
+    onSelected(item: SettingsItemModel) {
         switch(this.menuItem.selectionID)
         {
             case SettingsSelectionID.singleRequired:
@@ -33,6 +32,8 @@ export class WidgetSettingsMenuComponent implements OnInit {
         }
 
         this.menuItem.setTitle();
+        item.menuID = this.menuItem.menuID;
+        this.itemSelected.emit(item);
     }
 
     handleSelectionTypeSingleRequired(item: SettingsItemModel) {

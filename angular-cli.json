@@ -7,7 +7,8 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets"
+        "assets",
+        "js"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -16,7 +17,8 @@
       "tsconfig": "tsconfig.json",
       "prefix": "",
       "styles": [
-        "styles/app.sass"
+        "styles/app.sass",
+        "styles/pivotviewer.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

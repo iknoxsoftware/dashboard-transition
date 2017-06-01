@@ -4,7 +4,7 @@ import { EventService } from "app/services/event.service";
 import { WidgetID } from "app/models/widget.model";
 import { WidgetHeaderItemModel, WidgetHeaderModel } from "app/models/widget-header.model";
 import { BusyBoxMessageID } from "app/models/busy-box.model";
-import { SettingsSelectionModel, SettingsMenuID } from "app/models/widget-settings.model";
+import { SettingsSelectionModel, SettingsMenuID, SettingsItemModel } from "app/models/widget-settings.model";
 
 @Component({
     selector: 'iron-tracker-content',
@@ -12,6 +12,7 @@ import { SettingsSelectionModel, SettingsMenuID } from "app/models/widget-settin
     styleUrls: ['./iron-tracker-content.component.sass']
 })
 export class IronTrackerContentComponent extends WidgetContentComponent implements OnInit, OnDestroy {
+selectedBasemap: string;
 
     constructor(_eventService: EventService) { 
         super(WidgetID.ironTracker, _eventService);
@@ -31,16 +32,17 @@ export class IronTrackerContentComponent extends WidgetContentComponent implemen
 
         this.showBusyBox(BusyBoxMessageID.loading);
         this.settingsSelections = e;
-        this.buildWidgetHeader();
+        let selectedImagery = this.settingsSelections.getSelectedItem(SettingsMenuID.imagery);
+        if (selectedImagery !== undefined) {
+            this.buildWidgetHeader(selectedImagery);
+            this.selectedBasemap = selectedImagery.key;
+        }
     }
 
-    buildWidgetHeader() {
+    buildWidgetHeader(selectedImagery: SettingsItemModel) {
         let headerItems: WidgetHeaderItemModel[] = [
-            new WidgetHeaderItemModel('Widget', 'Iron Tracker')
+            new WidgetHeaderItemModel('Imagery', selectedImagery.displayName)
         ];
-        if (!this.settingsSelections.getNoItemsAreChecked(SettingsMenuID.group))
-            headerItems.push(new WidgetHeaderItemModel('Groups', this.settingsSelections.getSelectedItems(SettingsMenuID.group).length.toString()));
-        this.widgetHeader = new WidgetHeaderModel(this.widgetID, headerItems, true);
-        this.updateHeader();
+        this.updateHeader(new WidgetHeaderModel(this.widgetID, headerItems, true));
     }
 }

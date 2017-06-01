@@ -16,7 +16,10 @@ export class PivotViewerComponent extends WidgetComponent implements OnInit {
 
     ngOnInit() {
         this.menuIDs = [
-            SettingsMenuID.view
+            SettingsMenuID.pivotViewerReport,
+            SettingsMenuID.mission,
+            SettingsMenuID.group,
+            SettingsMenuID.airForceMds
         ];
     }
 }

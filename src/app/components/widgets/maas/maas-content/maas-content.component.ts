@@ -35,13 +35,9 @@ export class MaasContentComponent extends WidgetContentComponent implements OnIn
     }
 
     buildWidgetHeader() {
-        let headerItems: WidgetHeaderItemModel[] = [
-            new WidgetHeaderItemModel('Widget', 'Mission Assessment and SORTS')
-        ];
-        let selectedMission = this.settingsSelections.getSelectedItem(SettingsMenuID.mission);
-        if (selectedMission !== undefined)
-            headerItems.push(new WidgetHeaderItemModel('Mission', selectedMission.displayName));
-        this.widgetHeader = new WidgetHeaderModel(this.widgetID, headerItems, true);
-        this.updateHeader();
+        let headerItems: WidgetHeaderItemModel[] = [];
+        let selectedTag = this.settingsSelections.getSelectedItem(SettingsMenuID.tagConfig);
+        headerItems.push(new WidgetHeaderItemModel('Configuration', selectedTag.displayName));
+        this.updateHeader(new WidgetHeaderModel(this.widgetID, headerItems, true));
     }
 }

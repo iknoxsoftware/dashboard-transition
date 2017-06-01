@@ -38,6 +38,7 @@ import { PivotViewerContentComponent } from './components/widgets/pivot-viewer/p
 
 import { EsriMapViewComponent } from "./components/shared/esri-map-view/esri-map-view.component";
 import { AngularEsriModule } from 'angular-esri-components';
+import { PivotViewerViewComponent } from './components/shared/pivot-viewer-view/pivot-viewer-view.component';
 
 @NgModule({
     declarations: [
@@ -62,7 +63,8 @@ import { AngularEsriModule } from 'angular-esri-components';
         // EsriMapComponent,
         // EsriSearchComponent,
         // EsriMapMapComponent,
-        EsriMapViewComponent
+        EsriMapViewComponent,
+        PivotViewerViewComponent
     ],
     imports: [
         BrowserModule,

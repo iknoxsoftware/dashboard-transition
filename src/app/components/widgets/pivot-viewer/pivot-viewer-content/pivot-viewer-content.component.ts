@@ -5,6 +5,8 @@ import { WidgetID } from "app/models/widget.model";
 import { WidgetHeaderItemModel, WidgetHeaderModel } from "app/models/widget-header.model";
 import { BusyBoxMessageID } from "app/models/busy-box.model";
 import { SettingsSelectionModel, SettingsMenuID } from "app/models/widget-settings.model";
+import { PivotReportID } from 'app/models/pivot-viewer.model';
+import { PivotViewerHelper } from "app/helpers/pivot-viewer.helper";
 
 @Component({
     selector: 'pivot-viewer-content',
@@ -12,6 +14,7 @@ import { SettingsSelectionModel, SettingsMenuID } from "app/models/widget-settin
     styleUrls: ['./pivot-viewer-content.component.sass']
 })
 export class PivotViewerContentComponent extends WidgetContentComponent implements OnInit, OnDestroy {
+cxmlLoader: string;
 
     constructor(_eventService: EventService) { 
         super(WidgetID.pivotViewer, _eventService);
@@ -29,17 +32,19 @@ export class PivotViewerContentComponent extends WidgetContentComponent implemen
         if (e.widgetID !== this.widgetID || e === null)
             return;
 
-        this.showBusyBox(BusyBoxMessageID.loading);
         this.settingsSelections = e;
         this.buildWidgetHeader();
     }
 
     buildWidgetHeader() {
-        let headerItems: WidgetHeaderItemModel[] = [
-            new WidgetHeaderItemModel('Widget', 'Pivot Viewer')
-        ];
-        headerItems.push(new WidgetHeaderItemModel('View', this.settingsSelections.getSelectedItem(SettingsMenuID.view).displayName));
-        this.widgetHeader = new WidgetHeaderModel(this.widgetID, headerItems, true);
-        this.updateHeader();
+        let headerItems: WidgetHeaderItemModel[] = [];
+        let selectedItem = this.settingsSelections.getSelectedItem(SettingsMenuID.pivotViewerReport);
+        if (selectedItem !== undefined)
+        {
+            this.showBusyBox(BusyBoxMessageID.loading);
+            headerItems.push(new WidgetHeaderItemModel('Report', selectedItem.displayName));
+            this.updateHeader(new WidgetHeaderModel(this.widgetID, headerItems, true));
+            this.cxmlLoader = PivotViewerHelper.buildCxmlLoader(selectedItem, this.settingsSelections);
+        }
     }
 }

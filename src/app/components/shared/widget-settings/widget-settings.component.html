@@ -7,15 +7,13 @@
                         Settings
                     </div>
                 </div>
-                <div class='panelbar'>
-                    <kendo-panelbar [expandMode]="expandMode">
-                        <kendo-panelbar-item *ngFor="let menuItem of menuItems" [title]="menuItem.title">
-                            <ng-template kendoPanelBarContent>
-                                <widget-settings-menu [menuItem]="menuItem"></widget-settings-menu>
-                            </ng-template>
-                        </kendo-panelbar-item>
-                    </kendo-panelbar>
-                </div>
+                <kendo-panelbar [expandMode]="expandMode">
+                    <kendo-panelbar-item *ngFor="let menuItem of menuItems" [title]="menuItem.title">
+                        <ng-template kendoPanelBarContent>
+                            <widget-settings-menu [menuItem]="menuItem" (itemSelected)="onItemSelected($event)"></widget-settings-menu>
+                        </ng-template>
+                    </kendo-panelbar-item>
+                </kendo-panelbar>
                 <div class='footer'>
                     <div class='footer-item'>
                         <button (click)='onSettingsApplied($event)'>Apply</button>

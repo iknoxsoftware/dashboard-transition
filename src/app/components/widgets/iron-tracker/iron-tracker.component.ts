@@ -18,8 +18,7 @@ export class IronTrackerComponent extends WidgetComponent implements OnInit {
 
     ngOnInit() {
         this.menuIDs = [
-            SettingsMenuID.view,
-            SettingsMenuID.group,
+            SettingsMenuID.imagery
         ];
     }
 }

@@ -17,9 +17,8 @@ export class MaasComponent extends WidgetComponent implements OnInit {
 
     ngOnInit() {
         this.menuIDs = [
-            SettingsMenuID.view,
-            SettingsMenuID.group,
-            SettingsMenuID.mission,
+            SettingsMenuID.tagConfig,
+            SettingsMenuID.detailColumn
         ];
     }
 }

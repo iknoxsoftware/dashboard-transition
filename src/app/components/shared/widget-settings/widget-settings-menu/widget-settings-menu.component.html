@@ -1,1 +1,5 @@
-<widget-settings-item *ngFor="let settingsItem of menuItem.items" [settingsItem]="settingsItem" (selected)='onSelected($event)'></widget-settings-item>
+<div class='root'>
+    <widget-settings-item *ngFor="let settingsItem of menuItem.items" [settingsItem]="settingsItem" (selected)='onSelected($event)'></widget-settings-item>
+</div>
+
+
