@@ -37,6 +37,7 @@ import { PivotViewerContentComponent } from './components/widgets/pivot-viewer/p
 // import { EsriSearchComponent } from "./components/shared/esri-map/esri-map-map/esri-search/esri-search.component";
 
 import {MaasChart} from './components/widgets/maas/maas-content/maas-chart/maas-chart.component';
+import { MaasChartsSummaryService } from './components/widgets/maas/services/maas-charts-summary.service';
 
 import { ChartsModule } from '@progress/kendo-angular-charts';
 
@@ -82,7 +83,8 @@ import { AngularEsriModule } from 'angular-esri-components';
     providers: [
         MenuService, 
         EventService, 
-        WidgetSettingsService
+        WidgetSettingsService,
+        MaasChartsSummaryService
     ],
     bootstrap: [PageComponent]
 })

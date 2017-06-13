@@ -1,6 +1,9 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { MaasChartsSummaryService } from './../../services/maas-charts-summary.service';
+import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import {ChartComponent} from '@progress/kendo-angular-charts';
 import {SeriesClickEvent} from '@progress/kendo-angular-charts';
+import {Http} from '@angular/http';
+import {MaasChartsData} from './../../models/maas-charts-summary';
 
 @Component({
   selector: 'maas-chart',
@@ -11,23 +14,16 @@ import {SeriesClickEvent} from '@progress/kendo-angular-charts';
 export class MaasChart implements AfterViewInit {
     @ViewChild('chart') chart: ChartComponent;
 
-    seriesData: any = 
-        [
-            {TagConfig: "Air Force List METL", redMetlCount: 3, yellowMetlCount: 1, greenMetlCount: 2, blackMetlCount: 4},
-            {TagConfig: "Air Force List C-Rate", redMetlCount: 1, yellowMetlCount: 2, greenMetlCount: 1, blackMetlCount: 3},
-            {TagConfig: "EOD MU METL", redMetlCount: 2, yellowMetlCount: 4, greenMetlCount: 3, blackMetlCount: 3},
-            {TagConfig: "EOD MU C-Rate", redMetlCount: 1, yellowMetlCount: 3, greenMetlCount: 3, blackMetlCount: 1}
-        ];
+    seriesData: MaasChartsData[] = new Array<MaasChartsData>();
 
-    categoryAxes: Array<string> = ['Air Force List METL', 'Air Force List C-Rate', 'EOD MU METL', 'EOD MU METL'];
-
-    redMETLCounts: Array<number> = [3,1,2,4];
-    yellowMETLCounts: Array<number> = [1,2,4,2];
-    greenMETLCounts: Array<number> = [1,1,3,1];
-    blackMETLCounts: Array<number> = [1,3,3,1];
+    constructor (private _http: Http, private chartService: MaasChartsSummaryService) { }
 
     ngAfterViewInit() {
         let value: any = this.chart;
+    }
+
+    ngOnInit() {
+        this.seriesData = this.chartService.getChartData("Group 1");
     }
 
     onSeriesClick(e) {
