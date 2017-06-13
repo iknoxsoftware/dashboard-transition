@@ -1,0 +1,13 @@
+<p>Maas Chart</p>
+<kendo-chart #chart (seriesClick)="onSeriesClick($event)" style="height:100%">
+  <kendo-chart-series>
+    <kendo-chart-series-item type="column" color="red" [data]="seriesData" field="redMetlCount" categoryField="TagConfig" [stack]="{ group: 'Metl Count' }">
+    </kendo-chart-series-item>
+    <kendo-chart-series-item type="column" color="yellow" [data]="seriesData" field="yellowMetlCount" categoryField="TagConfig" [stack]="{ group: 'Metl Count' }">
+    </kendo-chart-series-item>
+    <kendo-chart-series-item type="column" color="green" [data]="seriesData" field="greenMetlCount" categoryField="TagConfig" [stack]="{ group: 'Metl Count' }">
+    </kendo-chart-series-item>
+    <kendo-chart-series-item type="column" color="black" [data]="seriesData" field="blackMetlCount" categoryField="TagConfig" [stack]="{ group: 'Metl Count' }">
+    </kendo-chart-series-item>
+  </kendo-chart-series>
+</kendo-chart>

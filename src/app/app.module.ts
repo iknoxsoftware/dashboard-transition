@@ -36,6 +36,10 @@ import { PivotViewerContentComponent } from './components/widgets/pivot-viewer/p
 // import { EsriMapMapComponent } from './components/shared/esri-map/esri-map-map/esri-map-map.component';
 // import { EsriSearchComponent } from "./components/shared/esri-map/esri-map-map/esri-search/esri-search.component";
 
+import {MaasChart} from './components/widgets/maas/maas-content/maas-chart/maas-chart.component';
+
+import { ChartsModule } from '@progress/kendo-angular-charts';
+
 import { EsriMapViewComponent } from "./components/shared/esri-map-view/esri-map-view.component";
 import { AngularEsriModule } from 'angular-esri-components';
 
@@ -62,7 +66,8 @@ import { AngularEsriModule } from 'angular-esri-components';
         // EsriMapComponent,
         // EsriSearchComponent,
         // EsriMapMapComponent,
-        EsriMapViewComponent
+        EsriMapViewComponent,
+        MaasChart
     ],
     imports: [
         BrowserModule,
@@ -71,7 +76,8 @@ import { AngularEsriModule } from 'angular-esri-components';
         FormsModule,
         HttpModule,
         RoutingData,
-        AngularEsriModule
+        AngularEsriModule,
+        ChartsModule
     ],
     providers: [
         MenuService, 
