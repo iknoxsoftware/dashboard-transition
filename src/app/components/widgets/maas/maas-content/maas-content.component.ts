@@ -6,6 +6,8 @@ import { WidgetHeaderItemModel, WidgetHeaderModel } from "app/models/widget-head
 import { BusyBoxMessageID } from "app/models/busy-box.model";
 import { SettingsSelectionModel, SettingsMenuID } from "app/models/widget-settings.model";
 
+import {} from 'app/components/widgets/maas/maas-content/maas/maas-bar-chart/maas-bar-chart-renderer';
+
 @Component({
     selector: 'maas-content',
     templateUrl: './maas-content.component.html',

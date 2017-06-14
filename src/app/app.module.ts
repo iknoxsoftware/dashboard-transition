@@ -40,6 +40,33 @@ import { EsriMapViewComponent } from "./components/shared/esri-map-view/esri-map
 import { AngularEsriModule } from 'angular-esri-components';
 import { PivotViewerViewComponent } from './components/shared/pivot-viewer-view/pivot-viewer-view.component';
 
+// Grid and Chart components
+import {AgGridModule} from 'ag-grid-angular/main';
+import {HighchartsStatic} from 'angular2-highcharts/dist/HighchartsService';
+import {ChartModule} from 'angular2-highcharts';
+
+import {ResizableModule} from 'angular2-resizable';
+
+// Import MAAS Components
+import {MAASDisplay} from 'app/components/widgets/maas/maas-content/maas/maas-display.component';
+import {MAASSettings} from 'app/components/widgets/maas/maas-content/maas/maas-settings.component';
+import {MaasBarChart} from 'app/components/widgets/maas/maas-content/maas/maas-bar-chart/maas-bar-chart-renderer';
+
+// MaasGridRenderer
+import {MaasGridComponent} from "app/components/widgets/maas/maas-content/maas/maas-grid-renderer/maas-grid-renderer.component";
+import {MaasGroupRenderer} from "app/components/widgets/maas/maas-content/maas/maas-grid-renderer/maas-group-renderer.component";
+//GroupReadinessRenderer
+import {GroupReadinessRenderer} from "app/components/widgets/maas/maas-content/maas/maas-grid-renderer/group-readiness-renderer/group-readiness-renderer.component";
+//RatingCellRenderer
+import {RatingCellRendererComponent} from 'app/components/widgets/maas/maas-content/maas/maas-grid-renderer/rating-cell-renderer/rating-cell-renderer.component';
+
+// Services
+import {WebApiObjectFactoryService} from 'app/components/widgets/maas/maas-content/maas/services/web-api-object-factory.service';
+
+export function highchartsFactory() {
+  return require('highcharts');
+}
+
 @NgModule({
     declarations: [
         MenuComponent,
@@ -64,7 +91,14 @@ import { PivotViewerViewComponent } from './components/shared/pivot-viewer-view/
         // EsriSearchComponent,
         // EsriMapMapComponent,
         EsriMapViewComponent,
-        PivotViewerViewComponent
+        PivotViewerViewComponent,
+        MAASDisplay,
+        MAASSettings,
+        MaasBarChart,
+        MaasGridComponent,
+        MaasGroupRenderer,
+        RatingCellRendererComponent,
+        GroupReadinessRenderer
     ],
     imports: [
         BrowserModule,
@@ -73,12 +107,24 @@ import { PivotViewerViewComponent } from './components/shared/pivot-viewer-view/
         FormsModule,
         HttpModule,
         RoutingData,
-        AngularEsriModule
+        AngularEsriModule,
+        AgGridModule.withComponents(
+        [
+            RatingCellRendererComponent,
+            GroupReadinessRenderer
+        ]),
+        ChartModule,
+        ResizableModule
     ],
     providers: [
         MenuService, 
         EventService, 
-        WidgetSettingsService
+        WidgetSettingsService,
+        WebApiObjectFactoryService,
+            {
+                provide: HighchartsStatic,
+                useFactory: highchartsFactory
+            }
     ],
     bootstrap: [PageComponent]
 })

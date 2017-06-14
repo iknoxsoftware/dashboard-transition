@@ -1,0 +1,70 @@
+<!--
+<table style="width:100%;height: 20%;border: 2px solid black;">
+    <tr>
+        <td bgcolor="#8C8C8C" [width]="settingsWidth" valign="top">
+            <div style="background:#8c8c8c;font-size: small;height: 84%;">
+                <div style="background:#f2f2f2;height:30px">
+                    Settings
+                </div>
+                <div style="color:white;background:linear-gradient(#999999,#808080);height:30px;border: 2px solid #737373" (click)="configsClicked()">
+                    Configuration ({{dtTagConfigs.length}})
+                </div>
+                <div [hidden]="configurationsHidden" style="background:white;height:100%;">
+                    <ul *ngFor="let item of dtTagConfigs">
+                        <li style="margin:0px;list-style-type:none;">
+                            <input id="configsCheck" name="configsCheck" type="checkbox" (click)="configClicked(item, $event)"/>{{ item.TagConfigName }}
+                        </li>
+                    </ul>
+                </div>
+                <div style="color:white;background:linear-gradient(#999999,#808080);height:30px;border: 2px solid #737373" (click)="detailsClicked()">
+                    Details ({{this.detailColumns.length}})
+                </div>
+                <div [hidden]="detailsHidden" style="background: white;height:100%">
+                    <ul *ngFor="let item of detailColumns">
+                        <li style="margin:0px;list-style-type:none;">
+                            <input id="detailsCheck" name="detailsCheck" type="checkbox" checked (click)="detailClicked($event, item.columnName)"/>{{ item.columnName }}
+                        </li>
+                    </ul>
+                </div>
+                <button style="position:absolute;bottom:10px;" (click)="apply()">Apply</button>
+            </div>
+        </td>
+        <td style="border: 2px solid black;" [width]="chartWidth" (mouseover)="settingsMouseOver()">
+            <maas-bar-chart [dtTagConfig]="dtTagConfig"></maas-bar-chart>
+        </td>
+    </tr>
+</table>
+-->
+<div style="height:100%">
+    <div style="width:280px;height:98%;border-style:solid;border-width:1px;float:left;">
+            <div style="background:#8c8c8c;font-size: small;height: 84%;">
+                <div style="background:#f2f2f2;height:30px">
+                    Settings
+                </div>
+                <div style="color:white;background:linear-gradient(#999999,#808080);height:30px;border: 2px solid #737373" (click)="configsClicked()">
+                    Configuration ({{dtTagConfigs.length}})
+                </div>
+                <div [hidden]="configurationsHidden" style="background:white;height:100%;">
+                    <ul *ngFor="let item of dtTagConfigs">
+                        <li style="margin:0px;list-style-type:none;">
+                            <input id="configsCheck" name="configsCheck" type="checkbox" (click)="configClicked(item, $event)"/>{{ item.TagConfigName }}
+                        </li>
+                    </ul>
+                </div>
+                <div style="color:white;background:linear-gradient(#999999,#808080);height:30px;border: 2px solid #737373" (click)="detailsClicked()">
+                    Details ({{this.detailColumns.length}})
+                </div>
+                <div [hidden]="detailsHidden" style="background: white;height:100%">
+                    <ul *ngFor="let item of detailColumns">
+                        <li style="margin:0px;list-style-type:none;">
+                            <input id="detailsCheck" name="detailsCheck" type="checkbox" checked (click)="detailClicked($event, item.columnName)"/>{{ item.columnName }}
+                        </li>
+                    </ul>
+                </div>
+                <button style="position:absolute;bottom:10px;" (click)="apply()">Apply</button>
+            </div>
+    </div>
+    <div style="width:78%;height:98%;border-style:solid;border-width:1px;float:right;">
+        <maas-bar-chart style="float:left;" [dtTagConfig]="dtTagConfig"></maas-bar-chart>
+    </div>
+</div>

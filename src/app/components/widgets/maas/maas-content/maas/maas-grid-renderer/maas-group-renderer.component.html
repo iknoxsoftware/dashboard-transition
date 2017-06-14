@@ -1,0 +1,21 @@
+<div style="width:100%;float:right;">
+    <div style="width:100%;background-color:lightgray">
+        <table style="width: 100%">
+            <tr>
+                <td style="background: gray;width:1200px;">
+                    <span style="color: white;font-size:small;"><b>Configuration:</b> {{dtTagConfig.TagConfigName}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="width:100%;background-color:lightgray">
+        <table style="width: 100%">
+            <tr>
+                <td style="background: lightgray;width:1200px;">
+                    <span style="color: black;font-size:small;"><b style="color:blue">{{dtTagConfig.TagConfigName}}</b>: {{tagName}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <maas-grid-component [dtTagConfig]="dtTagConfig"></maas-grid-component>
+</div>
