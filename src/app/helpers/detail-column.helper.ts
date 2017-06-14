@@ -34,13 +34,13 @@ export class DetailColumnHelper {
             case DetailColumnID.cRatingProj:
                 return "C-Rating Proj";
             case DetailColumnID.pRating:
-                return "P-Rating";
+                return "P";
             case DetailColumnID.sRating:
-                return "S-Rating";
+                return "S";
             case DetailColumnID.rRating:
-                return "R-Rating";
+                return "R";
             case DetailColumnID.tRating:
-                return "T-Rating";
+                return "T";
             case DetailColumnID.cRatingAsOf:
                 return "C-Rating As of (RICDA)";
             case DetailColumnID.cRatingAge:

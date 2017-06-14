@@ -38,31 +38,29 @@ export class MaasBarChart {
     selectedDetailColumns: Array<string>;
 
     constructor(private http: Http, webApiFactory: WebApiObjectFactoryService) {
-        this.dtTagConfig = new DtTagConfig();
-
-        this.dtTagConfig.DashboardId = 13
-        this.dtTagConfig.UserName = "lsimpson";
-        this.dtTagConfig.TagConfigId = "EAE0C757-9111-4A72-9E47-00963CCFC4D8";
-        this.dtTagConfig.TagConfigName = "C Config 2";
+       this.dtTagConfig = new DtTagConfig();
 
         this.selectedDetailColumns = new Array<string>();
 
         if (this.dtTagConfig != null){
-            this.setColumns();
             this.setChart(this.dtTagConfig);
         }
     }
 
   setColumns(): void {
+    /*
     this.maasDetailColumnService = new MAASDetailColumnService();
     this.detailColumns = this.maasDetailColumnService.getMAASDetailColumnsSetting()
 
     for (let detailColumn of this.detailColumns) {
       this.selectedDetailColumns.push(detailColumn.columnName);
     }
+    */
   }
 
-  setChart(dtTagConfig: DtTagConfig) {
+  public setChart(dtTagConfig: DtTagConfig) {
+    this.setColumns();
+
     let uardSummaries: UnitAssessmentReadinessSummaryMetl[] = this.uardService.getChartMetlSummary(0, dtTagConfig.TagConfigId);
     let categories: string[] = new Array<string>();
     let seriesNRMetl: number[] = new Array<number>();

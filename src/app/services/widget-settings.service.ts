@@ -120,8 +120,8 @@ export class WidgetSettingsService
 
     private buildSettingsItemsTagConfig() : Array<SettingsItemModel> {
         return [
-            <SettingsItemModel> { displayName: "Test", guidID: "CA1A241F-A56C-4A7E-B30E-D97C1B0FD629" },
-            <SettingsItemModel> { displayName: "My Configuration", guidID: "826009D7-8A05-4818-82A0-6B15F8B37A9D" }
+            <SettingsItemModel> { displayName: "C Config 2", guidID: "EAE0C757-9111-4A72-9E47-00963CCFC4D8" },
+            <SettingsItemModel> { displayName: "Clint Configuration", guidID: "1AEDA9A8-CB24-4864-A0CF-7C4057966000" }
         ];
     }
 
