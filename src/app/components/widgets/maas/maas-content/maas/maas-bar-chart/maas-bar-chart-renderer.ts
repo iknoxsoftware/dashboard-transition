@@ -47,20 +47,7 @@ export class MaasBarChart {
         }
     }
 
-  setColumns(): void {
-    /*
-    this.maasDetailColumnService = new MAASDetailColumnService();
-    this.detailColumns = this.maasDetailColumnService.getMAASDetailColumnsSetting()
-
-    for (let detailColumn of this.detailColumns) {
-      this.selectedDetailColumns.push(detailColumn.columnName);
-    }
-    */
-  }
-
   public setChart(dtTagConfig: DtTagConfig) {
-    this.setColumns();
-
     let uardSummaries: UnitAssessmentReadinessSummaryMetl[] = this.uardService.getChartMetlSummary(0, dtTagConfig.TagConfigId);
     let categories: string[] = new Array<string>();
     let seriesNRMetl: number[] = new Array<number>();

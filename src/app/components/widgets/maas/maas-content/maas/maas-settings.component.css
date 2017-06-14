@@ -1,7 +1,0 @@
-li:hover {
-    background-color:lightgrey;
-    list-style-type:none;
-}
-div:hover {
-    background:linear-gradient(down, gray, darkgray);
-}

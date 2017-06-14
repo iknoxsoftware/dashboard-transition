@@ -45,11 +45,7 @@ import {AgGridModule} from 'ag-grid-angular/main';
 import {HighchartsStatic} from 'angular2-highcharts/dist/HighchartsService';
 import {ChartModule} from 'angular2-highcharts';
 
-import {ResizableModule} from 'angular2-resizable';
-
 // Import MAAS Components
-import {MAASDisplay} from 'app/components/widgets/maas/maas-content/maas/maas-display.component';
-import {MAASSettings} from 'app/components/widgets/maas/maas-content/maas/maas-settings.component';
 import {MaasBarChart} from 'app/components/widgets/maas/maas-content/maas/maas-bar-chart/maas-bar-chart-renderer';
 
 // MaasGridRenderer
@@ -92,8 +88,6 @@ export function highchartsFactory() {
         // EsriMapMapComponent,
         EsriMapViewComponent,
         PivotViewerViewComponent,
-        MAASDisplay,
-        MAASSettings,
         MaasBarChart,
         MaasGridComponent,
         MaasGroupRenderer,
@@ -113,8 +107,7 @@ export function highchartsFactory() {
             RatingCellRendererComponent,
             GroupReadinessRenderer
         ]),
-        ChartModule,
-        ResizableModule
+        ChartModule
     ],
     providers: [
         MenuService, 
