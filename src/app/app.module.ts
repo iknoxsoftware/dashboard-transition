@@ -36,13 +36,35 @@ import { PivotViewerContentComponent } from './components/widgets/pivot-viewer/p
 // import { EsriMapMapComponent } from './components/shared/esri-map/esri-map-map/esri-map-map.component';
 // import { EsriSearchComponent } from "./components/shared/esri-map/esri-map-map/esri-search/esri-search.component";
 
-import {MaasChart} from './components/widgets/maas/maas-content/maas-chart/maas-chart.component';
+// Import MAAS Components
+import {MaasBarChart} from 'app/components/widgets/maas/maas-content/maas/maas-bar-chart/maas-bar-chart-renderer';
+
+// MaasGridRenderer
+import {MaasGridComponent} from "app/components/widgets/maas/maas-content/maas/maas-grid-renderer/maas-grid-renderer.component";
+import {MaasGroupRenderer} from "app/components/widgets/maas/maas-content//maas/maas-grid-renderer/maas-group-renderer.component";
+//GroupReadinessRenderer
+import {GroupReadinessRenderer} from "app/components/widgets/maas/maas-content/maas/maas-grid-renderer/group-readiness-renderer/group-readiness-renderer.component";
+//RatingCellRenderer
+import {RatingCellRendererComponent} from 'app/components/widgets/maas/maas-content//maas/maas-grid-renderer/rating-cell-renderer/rating-cell-renderer.component';
+
+import {AgGridModule} from 'ag-grid-angular/main';
+
+import {HighchartsStatic} from 'angular2-highcharts/dist/HighchartsService';
+import {ChartModule} from 'angular2-highcharts';
+import {ResizableModule} from 'angular2-resizable';
+
+import {WebApiObjectFactoryService} from 'app/components/widgets/maas/maas-content/maas/services/web-api-object-factory.service';
+
 import { MaasChartsSummaryService } from './components/widgets/maas/services/maas-charts-summary.service';
 
 import { ChartsModule } from '@progress/kendo-angular-charts';
 
 import { EsriMapViewComponent } from "./components/shared/esri-map-view/esri-map-view.component";
 import { AngularEsriModule } from 'angular-esri-components';
+
+export function highchartsFactory() {
+  return require('highcharts');
+}
 
 @NgModule({
     declarations: [
@@ -68,7 +90,12 @@ import { AngularEsriModule } from 'angular-esri-components';
         // EsriSearchComponent,
         // EsriMapMapComponent,
         EsriMapViewComponent,
-        MaasChart
+        /* Maas Components */
+        MaasBarChart,
+        MaasGridComponent,
+        MaasGroupRenderer,
+        RatingCellRendererComponent,
+        GroupReadinessRenderer
     ],
     imports: [
         BrowserModule,
@@ -78,13 +105,25 @@ import { AngularEsriModule } from 'angular-esri-components';
         HttpModule,
         RoutingData,
         AngularEsriModule,
-        ChartsModule
+        ChartsModule,
+        AgGridModule.withComponents(
+      [
+        RatingCellRendererComponent,
+        GroupReadinessRenderer
+      ]),
+      ChartModule,
+      ResizableModule
     ],
     providers: [
         MenuService, 
         EventService, 
         WidgetSettingsService,
-        MaasChartsSummaryService
+        MaasChartsSummaryService,
+        WebApiObjectFactoryService,
+        {
+            provide: HighchartsStatic,
+            useFactory: highchartsFactory
+        }
     ],
     bootstrap: [PageComponent]
 })

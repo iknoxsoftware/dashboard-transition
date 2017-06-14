@@ -11,8 +11,8 @@ export class MaasChartsSummaryService
 
     getChartData(TagConfigId: string): MaasChartsData[] {
         return [
-            <MaasChartsData> {TagConfig: "Air Force List METL", RedMetlCount: 3, YellowMetlCount: 1, GreenMetlCount: 2, BlackMetlCount: 4, RedCrateCount: 4, YellowCrateCount: 0, GreenCrateCount: 12, BlackCrateCount: 14},
-            <MaasChartsData> {TagConfig: "Air Force List METL", RedMetlCount: 12, YellowMetlCount: 28, GreenMetlCount: 23, BlackMetlCount: 14, RedCrateCount: 8, YellowCrateCount: 12, GreenCrateCount: 1, BlackCrateCount: 8},
+            <MaasChartsData> {TagConfig: "Air Force List METL", RedMetlCount: 3, YellowMetlCount: 11, GreenMetlCount: 12, BlackMetlCount: 14, RedCrateCount: 4, YellowCrateCount: 0, GreenCrateCount: 12, BlackCrateCount: 14},
+            <MaasChartsData> {TagConfig: "EODMU Medical Group", RedMetlCount: 12, YellowMetlCount: 28, GreenMetlCount: 23, BlackMetlCount: 14, RedCrateCount: 8, YellowCrateCount: 12, GreenCrateCount: 1, BlackCrateCount: 8},
         ];
     }
 }
