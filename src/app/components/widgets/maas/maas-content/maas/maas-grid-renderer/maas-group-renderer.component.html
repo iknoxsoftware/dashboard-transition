@@ -1,4 +1,4 @@
-<div style="width:100%;float:right;">
+<!--<div style="width:100%;float:right;">
     <div style="width:100%;background-color:lightgray">
         <table style="width: 100%">
             <tr>
@@ -16,6 +16,15 @@
                 </td>
             </tr>
         </table>
+    </div>
+    <maas-grid-component [dtTagConfig]="dtTagConfig"></maas-grid-component>
+</div>-->
+
+<div>
+    <div>
+        <div class="nav-active" (click)="onNavClicked()">{{dtTagConfig.TagConfigName}}</div>
+        <div class="separator"></div>
+        <div class="nav-inactive">{{tagName}}</div>
     </div>
     <maas-grid-component [dtTagConfig]="dtTagConfig"></maas-grid-component>
 </div>

@@ -2,5 +2,5 @@
     <chart [options]="options" (load)="onChartLoad($event.context)" (click)="onChartClicked($event)"></chart>
 </div>
 <div [hidden]="!hideChart" style="width:100%;height:100%">
-    <maas-group-renderer [dtTagConfig]="dtTagConfig">Loading Readiness Details...</maas-group-renderer>
+    <maas-group-renderer [dtTagConfig]="dtTagConfig" (navClicked)="onNavClicked($event)">Loading Readiness Details...</maas-group-renderer>
 </div>

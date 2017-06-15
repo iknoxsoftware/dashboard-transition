@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, AfterViewInit, ViewChild} from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, ViewChild, Output, EventEmitter } from '@angular/core';
 
 import {DtTagConfig} from 'app/components/widgets/maas/maas-content/maas/services/dt-tag-config';
 
@@ -6,11 +6,13 @@ import {MaasGridComponent} from './maas-grid-renderer.component';
 
 @Component({
   selector: 'maas-group-renderer',
-  templateUrl: './maas-group-renderer.component.html'
+  templateUrl: './maas-group-renderer.component.html',
+  styleUrls: ['./maas-group-renderer.component.sass']
 })
 
 export class MaasGroupRenderer implements AfterViewInit {
   @Input("dtTagConfig") dtTagConfig: DtTagConfig;
+  @Output() navClicked: EventEmitter<boolean> = new EventEmitter();
 
   @ViewChild(MaasGridComponent)
   maasGridComponent: MaasGridComponent;
@@ -41,5 +43,9 @@ export class MaasGroupRenderer implements AfterViewInit {
       this.maasGridComponent.selectedDetailColumns = this.selectedDetailColumns;
       this.maasGridComponent.configClicked(dtTagConfig, tagName);
     }
+  }
+
+  onNavClicked() {
+    this.navClicked.emit(true);
   }
 }

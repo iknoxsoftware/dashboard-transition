@@ -57,14 +57,14 @@ export class MaasBarChart {
 
     for (let uardSummary of uardSummaries) {
         //Metl Counts
-        categories.push(uardSummary.tagName + "\nMetl Counts");
+        categories.push(uardSummary.tagName + " METL");
         seriesNRMetl.push(uardSummary.nrCount);
         seriesYMetl.push(uardSummary.yCount);
         seriesQMetl.push(uardSummary.qCount);
         seriesNMetl.push(uardSummary.nCount);
 
         //CRate Counts
-        categories.push(uardSummary.tagName + "\nCRates Counts");
+        categories.push(uardSummary.tagName + " C-Rating");
         seriesNRMetl.push(uardSummary.c5Count);
         seriesYMetl.push(uardSummary.c4Count);
         seriesQMetl.push(uardSummary.c3Count);
@@ -73,8 +73,8 @@ export class MaasBarChart {
 
     this.options = {
       chart: {
-          width: 1000,
-          height: 1000,
+          width: 1600,
+          height: 765,
           type: 'column',
           click: function(e) {
             console.log("clicked")
@@ -83,7 +83,7 @@ export class MaasBarChart {
       credits: {
           enabled: false
       },
-      colors: ['#001a00', '#cc3300', '#ffff00', '#009900'],
+      colors: ['#4B4B4B', '#A01414', '#E7AE0F', '#107213'],
       title: {
           text: ''
       },
@@ -93,7 +93,7 @@ export class MaasBarChart {
       yAxis: {
           min: 0,
           title: {
-              text: 'Total Metl Ratings'
+              text: 'Number Of Units'
           }
       },
       legend: {
@@ -136,8 +136,8 @@ export class MaasBarChart {
 
     let tagName: string = e.point.category;
 
-    tagName = tagName.replace("\nMetl Counts", "");
-    tagName = tagName.replace("\nCRates Counts", "");
+    tagName = tagName.replace(" METL", "");
+    tagName = tagName.replace(" C-Rating", "");
 
     this.maasGroupRenderer.selectedDetailColumns = this.selectedDetailColumns;
     this.maasGroupRenderer.configChanged(this.dtTagConfig, tagName);
@@ -147,5 +147,9 @@ export class MaasBarChart {
 
   onChartLoad(chart) {
     console.log("Chart loaded.");
+  }
+
+  onNavClicked() {
+      this.hideChart = false;
   }
 }

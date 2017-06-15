@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 
 @Component({
     selector: 'app-red-component',
-    styleUrls: ['./rating-cell-renderer.component.css'],
+    styleUrls: ['./rating-cell-renderer.component.sass'],
     templateUrl: './rating-cell-renderer.component.html'
 })
 export class RatingCellRendererComponent {
@@ -11,6 +11,11 @@ export class RatingCellRendererComponent {
     public textAlign: string;
     public backgroundColor: string;
     public foregroundColor: string;
+
+    public isGreenOverdue: boolean;
+    public isYellowOverdue: boolean;
+    public isRedOverdue: boolean;
+    public isGrayOverdue: boolean;
 
     agInit(params: any): void {
         this.params = params;
@@ -21,43 +26,35 @@ export class RatingCellRendererComponent {
         let cRatingDays: number = params.data.CRatingDays;
         let cRatingProjDays: number = params.data.cRatingProjDays;
 
+        if (this.params.value == "0")
+        {
+            this.params.value = "";
+        }
         // Gradient results (rates older than 30 days)
-        if ((metlDays > 30 && (params.colDef.field == "MetlRatingText" || params.colDef.field == "MetlRatingTextProj")) || (cRatingDays > 30 && (params.colDef.field == "CRating" || params.colDef.field == "PRating" || params.colDef.field == "SRating" || params.colDef.field == "RRating" || params.colDef.field == "TRating")) || (cRatingProjDays > 30 && params.colDef.field == "PCRating")) {
-            if (this.params.value == "1" || this.params.value == "2" || this.params.value == "Y") {
-                this.backgroundColor = "repeating-linear-gradient(-55deg, black, green 10%, green 0%)"
-                this.foregroundColor = "white";
-            }
-            else if (this.params.value == "3" || this.params.value == "Q") {
-                this.backgroundColor = "repeating-linear-gradient(-55deg, black, yellow 10%, yellow 10%)"
-                this.foregroundColor = "white";
-            }
-            else if (this.params.value == "4" || this.params.value == "N") {
-                this.backgroundColor = "repeating-linear-gradient(-55deg, black, red 10%, red 0%)"
-                this.foregroundColor = "white";
-            }
-            else {
-                this.backgroundColor = "repeating-linear-gradient(-55deg, black, #a6a6a6 10%, #a6a6a6 0%)"
-                this.foregroundColor = "white";
-            }
+        else if ((metlDays > 30 && (params.colDef.field == "MetlRatingText" || params.colDef.field == "MetlRatingTextProj")) || (cRatingDays > 30 && (params.colDef.field == "CRating" || params.colDef.field == "PRating" || params.colDef.field == "SRating" || params.colDef.field == "RRating" || params.colDef.field == "TRating")) || (cRatingProjDays > 30 && params.colDef.field == "PCRating")) {
+            this.foregroundColor = "white";
+            if (this.params.value == "1" || this.params.value == "2" || this.params.value == "Y")
+                this.isGreenOverdue = true;
+            else if (this.params.value == "3" || this.params.value == "Q")
+                this.isYellowOverdue = true;
+            else if (this.params.value == "4" || this.params.value == "N")
+                this.isRedOverdue = true;
+            else
+                this.isGrayOverdue = true;
         }
         else
         {
-            if (this.params.value == "1" || this.params.value == "2" || this.params.value == "Y") {
-                this.backgroundColor = "linear-gradient(to bottom, #009933, #004d00)";
-                this.foregroundColor = "white";
-            }
+            this.foregroundColor = "white";
+            if (this.params.value == "1" || this.params.value == "2" || this.params.value == "Y")
+                this.backgroundColor = "linear-gradient(to bottom, #21BA25, #107213)";
             else if (this.params.value == "3" || this.params.value == "Q") {
-                this.backgroundColor = "linear-gradient(to bottom, #ffff00, #b3b300)";
-                this.foregroundColor = "white";
+                this.backgroundColor = "linear-gradient(to bottom, #FFE714, #E7AE0F)";
+                this.foregroundColor = "black";
             }
-            else if (this.params.value == "4" || this.params.value == "N") {
-                this.backgroundColor = "linear-gradient(to bottom, #cc0000, #4d0000)";
-                this.foregroundColor = "white";
-            }
-            else {
-                this.backgroundColor = "linear-gradient(to bottom, #b3b3b3, #4d4d4d)";
-                this.foregroundColor = "white";
-            }
+            else if (this.params.value == "4" || this.params.value == "N")
+                this.backgroundColor = "linear-gradient(to bottom, #E91313, #A01414)";
+            else
+                this.backgroundColor = "linear-gradient(to bottom, #818181, #4B4B4B)";
         }
     }
 }

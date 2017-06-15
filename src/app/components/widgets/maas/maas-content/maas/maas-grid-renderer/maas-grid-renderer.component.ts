@@ -25,7 +25,8 @@ import {UnitAssessmentReadinessSummaryMetl} from 'app/components/widgets/maas/ma
     moduleId: module.id,
     selector: 'maas-grid-component',
     templateUrl: './maas-grid-renderer.component.html',
-    providers: [WebApiObjectFactoryService]
+    providers: [WebApiObjectFactoryService],
+    styleUrls: ['./maas-grid-renderer.component.sass']
 })
 
 export class MaasGridComponent {
@@ -60,7 +61,7 @@ export class MaasGridComponent {
         this.gridOptions.groupUseEntireRow = true;
         this.gridOptions.groupSuppressAutoColumn;
         this.gridOptions.animateRows = true;
-        this.gridOptions.rowHeight = 30;
+        this.gridOptions.rowHeight = 25;
         this.gridOptions.enableColResize;
         this.gridOptions.enableSorting = true;
 
@@ -85,81 +86,108 @@ export class MaasGridComponent {
                 field: "C4Count",
                 width: 50,
                 aggFunc: "sum",
-                hide: true
+                hide: true,
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "cYellow",
                 field: "C3Count",
                 width: 50,
                 aggFunc: "sum",
-                hide: true
+                hide: true,
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "cGreen",
                 field: "C12Count",
                 width: 50,
                 aggFunc: "sum",
-                hide: true
+                hide: true,
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "cGray",
                 field: "C5Count",
                 width: 50,
                 aggFunc: "sum",
-                hide: true
+                hide: true,
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "mRed",
                 field: "NCount",
                 width: 50,
                 aggFunc: "sum",
-                hide: true
+                hide: true,
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "mYellow",
                 field: "QCount",
                 width: 50,
                 aggFunc: "sum",
-                hide: true
+                hide: true,
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "mGreen",
                 field: "YCount",
                 width: 50,
                 aggFunc: "sum",
-                hide: true
+                hide: true,
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "mGray",
                 field: "NRCount",
                 width: 50,
                 aggFunc: "sum",
-                hide: true
+                hide: true,
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "UIC",
                 field: "UnitUic",
-                colId: "UIC"
+                colId: "UIC",
+                width: 70,
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "Unit Name",
                 field: "UnitName",
-                colId: "Unit Name"
+                colId: "Unit Name",
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "UTC",
                 field: "UnitTypeCode",
-                colId: "UTC"
+                colId: "UTC",
+                width: 70,
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "Activity",
                 field: "UnitCtivityName",
-                colId: "Activity"
+                colId: "Activity",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "Location",
                 field: "PresentRegion",
-                colId: "Location"
+                colId: "Location",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "METL Prev",
@@ -167,7 +195,9 @@ export class MaasGridComponent {
                 tooltipField: "MetlDateAssessed",
                 width: 100,
                 cellRendererFramework: RatingCellRendererComponent,
-                colId: "METL Prev"
+                colId: "METL Prev",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-rating-cell"
             }, 
             {
                 headerName: "METL",
@@ -175,7 +205,9 @@ export class MaasGridComponent {
                 tooltipField: "MetlDateAssessed",
                 width: 100,
                 cellRendererFramework: RatingCellRendererComponent,
-                colId: "METL"
+                colId: "METL",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-rating-cell"
             },
             {
                 headerName: "METL Proj",
@@ -183,31 +215,42 @@ export class MaasGridComponent {
                 tooltipField: "MetlDateAssessed",
                 width: 100,
                 cellRendererFramework: RatingCellRendererComponent,
-                colId: "METL Proj"
+                colId: "METL Proj",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-rating-cell"
             },
             {
                 headerName: "METL As Of",
                 field: "MetlDateAssessed",
                 tooltipField: "MetlDateAssessed",
                 hidden: true,
-                colId: "METL As Of"
+                colId: "METL As Of",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "METL Days",
                 field: "MetlDays",
                 tooltipField: "MetlDateAssessed",
                 hidden: true,
-                colId: "METL Days"
+                colId: "METL Days",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "Assigned",
                 field: "AssignedUic",
-                colId: "Assigned"
+                colId: "Assigned",
+                width: 100,
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "MAJCOM",
                 field: "MajcomUic",
-                colId: "MAJCOM"
+                colId: "MAJCOM",
+                width: 100,
+                suppressSizeToFit: true,
             },
             {
                 headerName: "C-Rating Prev",
@@ -215,7 +258,9 @@ export class MaasGridComponent {
                 tooltipField: "CDateAssessed",
                 width: 100,
                 cellRendererFramework: RatingCellRendererComponent,
-                colId: "C-Rating Prev"
+                colId: "C-Rating Prev",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-rating-cell"
             },
             {
                 headerName: "C-Rating",
@@ -223,77 +268,99 @@ export class MaasGridComponent {
                 tooltipField: "CDateAssessed",
                 width: 80,
                 cellRendererFramework: RatingCellRendererComponent,
-                colId: "C-Rating"
+                colId: "C-Rating",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-rating-cell"
             },
             {
                 headerName: "C-Rating Proj",
                 field: "PCRating",
                 width: 100,
                 cellRendererFramework: RatingCellRendererComponent,
-                colId: "C-Rating Proj"
+                colId: "C-Rating Proj",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-rating-cell"
             },
             {
                 headerName: "C-Rating Proj Date",
                 field: "PCDateAssessed",
                 tooltipField: "CDateAssessed",
                 hidden: true,
-                colId: "C-Rating Proj Date"
+                colId: "C-Rating Proj Date",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "C-Rating Proj Days",
                 field: "cRatingProjDays",
                 tooltipField: "CDateAssessed",
                 hidden: true,
-                colId: "C-Rating Proj Days"
+                colId: "C-Rating Proj Days",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "P",
                 field: "PRating",
                 width: 50,
                 cellRendererFramework: RatingCellRendererComponent,
-                colId: "P"
+                colId: "P",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-rating-cell"
             },
             {
                 headerName: "S",
                 field: "SRating",
                 width: 50,
                 cellRendererFramework: RatingCellRendererComponent,
-                colId: "S"
+                colId: "S",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-rating-cell"
             },
             {
                 headerName: "R",
                 field: "RRating",
                 width: 50,
                 cellRendererFramework: RatingCellRendererComponent,
-                colId: "R"
+                colId: "R",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-rating-cell"
             },
             {
                 headerName: "T",
                 field: "TRating",
                 width: 50,
                 cellRendererFramework: RatingCellRendererComponent,
-                colId: "T"
+                colId: "T",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-rating-cell"
             },
             {
                 headerName: "C-Rating As of (RICDA)",
                 field: "CDateAssessed",
                 tooltipField: "CDateAssessed",
                 hidden: true,
-                colId: "C-Rating As of (RICDA)"
+                colId: "C-Rating As of (RICDA)",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "C-Rating Days",
                 field: "CRatingDays",
                 tooltipField: "CDateAssessed",
                 hidden: true,
-                colId: "C-Rating Days"
+                colId: "C-Rating Days",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             },
             {
                 headerName: "PCTEF",
                 field: "PCTEF",
                 tooltipField: "PCTEF",
                 hidden: true,
-                colId: "PCTEF"
+                colId: "PCTEF",
+                suppressSizeToFit: true,
+                cellClass: "dashboard-cell"
             }
         ];
     }
@@ -321,6 +388,7 @@ export class MaasGridComponent {
             }
         }
         this.gridOptions.api.refreshView();
+        this.sizeToFit();
         //this.gridOptions.columnApi.autoSizeAllColumns();
     }
 

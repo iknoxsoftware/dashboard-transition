@@ -1,5 +1,4 @@
-<div style="height:100%;font-size:small;line-height: 25px;"
-    [style.text-align]="textAlign"
-    [style.background]="backgroundColor"
-    [style.color] = "foregroundColor"
-    >{{ params.value }}</div>
+<div [style.text-align]="textAlign" [style.background]="backgroundColor" [style.color] = "foregroundColor" 
+    [ngClass]="{ 'green-overdue': isGreenOverdue, 'yellow-overdue': isYellowOverdue, 'red-overdue': isRedOverdue, 'gray-overdue': isGrayOverdue }">
+    <div class='rating'>{{ params.value }}</div>
+</div>
